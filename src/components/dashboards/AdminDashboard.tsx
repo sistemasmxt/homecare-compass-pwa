@@ -1,6 +1,6 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Calendar, DollarSign, Activity, TrendingUp, FileText } from 'lucide-react';
+import { FileUpload } from '@/components/FileUpload';
 
 export const AdminDashboard = () => {
   const stats = [
@@ -94,6 +94,11 @@ export const AdminDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <FileUpload 
+        title="Documentos Administrativos e Relatórios" 
+        userType="admin"
+      />
     </div>
   );
 };

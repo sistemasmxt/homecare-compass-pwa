@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Heart, Pill, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FileUpload } from '@/components/FileUpload';
 
 export const PatientDashboard = () => {
   const nextAppointments = [
@@ -130,24 +131,31 @@ export const PatientDashboard = () => {
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Sinais Vitais Recentes</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {vitalSigns.map((vital, index) => (
-              <div key={index} className="text-center p-4 bg-slate-50 rounded-lg">
-                <p className="text-sm text-slate-600 mb-1">{vital.label}</p>
-                <p className="text-xl font-bold text-slate-800">{vital.value}</p>
-                <p className={`text-xs ${vital.status === 'normal' ? 'text-green-600' : 'text-red-600'}`}>
-                  {vital.status === 'normal' ? 'Normal' : 'Atenção'}
-                </p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Sinais Vitais Recentes</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {vitalSigns.map((vital, index) => (
+                <div key={index} className="text-center p-4 bg-slate-50 rounded-lg">
+                  <p className="text-sm text-slate-600 mb-1">{vital.label}</p>
+                  <p className="text-xl font-bold text-slate-800">{vital.value}</p>
+                  <p className={`text-xs ${vital.status === 'normal' ? 'text-green-600' : 'text-red-600'}`}>
+                    {vital.status === 'normal' ? 'Normal' : 'Atenção'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <FileUpload 
+          title="Meus Documentos e Exames" 
+          userType="patient"
+        />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Calendar, FileText, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FileUpload } from '@/components/FileUpload';
 
 export const DoctorDashboard = () => {
   const todayAppointments = [
@@ -115,6 +115,11 @@ export const DoctorDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <FileUpload 
+        title="Documentos Médicos e Prescrições" 
+        userType="doctor"
+      />
     </div>
   );
 };

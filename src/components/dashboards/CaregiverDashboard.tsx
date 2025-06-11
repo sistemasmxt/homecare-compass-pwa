@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Clock, Users, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FileUpload } from '@/components/FileUpload';
 
 export const CaregiverDashboard = () => {
   const todayVisits = [
@@ -137,6 +137,11 @@ export const CaregiverDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <FileUpload 
+        title="Relatórios de Visitas e Fotos" 
+        userType="caregiver"
+      />
     </div>
   );
 };
