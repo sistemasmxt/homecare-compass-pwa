@@ -1,6 +1,5 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Heart, Pills, Activity } from 'lucide-react';
+import { Calendar, Heart, Pill, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const PatientDashboard = () => {
@@ -49,7 +48,7 @@ export const PatientDashboard = () => {
             <CardTitle className="text-sm font-medium text-slate-600">
               Medicamentos
             </CardTitle>
-            <Pills className="h-4 w-4 text-slate-400" />
+            <Pill className="h-4 w-4 text-slate-400" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-slate-800">3</div>
