@@ -11,6 +11,6 @@ export default function Home() {
     return <Navigate to="/landing" replace />;
   }
   
-  // Se estiver logado, vai para o dashboard
+  // Se estiver logado, mostra o dashboard apropriado
   return <Index />;
 }

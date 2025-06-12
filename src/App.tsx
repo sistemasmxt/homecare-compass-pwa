@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { AuthWrapper } from "@/components/AuthWrapper";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { PublicRoute } from "@/components/PublicRoute";
 import { Layout } from "./components/Layout";
@@ -29,7 +28,7 @@ const App = () => (
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {/* Rota inicial que redireciona baseado no estado de login */}
+            {/* Rota inicial */}
             <Route path="/" element={<Home />} />
             
             {/* Rotas públicas */}
@@ -45,95 +44,71 @@ const App = () => (
               </PublicRoute>
             } />
 
-            {/* Rotas protegidas */}
-            <Route path="/dashboard" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute>
-                    <Home />
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
-            } />
-            
+            {/* Rotas protegidas com layout */}
             <Route path="/pacientes" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute allowedRoles={['admin', 'doctor', 'caregiver']}>
-                    <Pacientes />
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute allowedRoles={['admin', 'doctor', 'caregiver']}>
+                  <Pacientes />
+                </ProtectedRoute>
+              </Layout>
             } />
             
             <Route path="/agendamentos" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute allowedRoles={['admin', 'doctor', 'caregiver']}>
-                    <Agendamentos />
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute allowedRoles={['admin', 'doctor', 'caregiver']}>
+                  <Agendamentos />
+                </ProtectedRoute>
+              </Layout>
             } />
             
             <Route path="/financeiro" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute allowedRoles={['admin']}>
-                    <Financeiro />
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <Financeiro />
+                </ProtectedRoute>
+              </Layout>
             } />
             
             <Route path="/profissionais" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute allowedRoles={['admin', 'doctor']}>
-                    <Profissionais />
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute allowedRoles={['admin', 'doctor']}>
+                  <Profissionais />
+                </ProtectedRoute>
+              </Layout>
             } />
 
             {/* Páginas em desenvolvimento */}
             <Route path="/relatorios" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Relatórios</h1>
-                      <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
-                    </div>
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute>
+                  <div className="p-6">
+                    <h1 className="text-3xl font-bold">Relatórios</h1>
+                    <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
+                  </div>
+                </ProtectedRoute>
+              </Layout>
             } />
             
             <Route path="/analytics" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Analytics</h1>
-                      <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
-                    </div>
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute>
+                  <div className="p-6">
+                    <h1 className="text-3xl font-bold">Analytics</h1>
+                    <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
+                  </div>
+                </ProtectedRoute>
+              </Layout>
             } />
             
             <Route path="/configuracoes" element={
-              <AuthWrapper>
-                <Layout>
-                  <ProtectedRoute>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Configurações</h1>
-                      <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
-                    </div>
-                  </ProtectedRoute>
-                </Layout>
-              </AuthWrapper>
+              <Layout>
+                <ProtectedRoute>
+                  <div className="p-6">
+                    <h1 className="text-3xl font-bold">Configurações</h1>
+                    <p className="text-slate-600 mt-2">Página em desenvolvimento</p>
+                  </div>
+                </ProtectedRoute>
+              </Layout>
             } />
 
             {/* Rota catch-all para 404 */}

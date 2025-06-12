@@ -32,10 +32,10 @@ export const LoginPage = () => {
   };
 
   const demoAccounts = [
-    { email: 'maria@healthcare.com', role: 'Administrador', password: 'demo123' },
-    { email: 'joao@healthcare.com', role: 'Médico', password: 'demo123' },
-    { email: 'ana@healthcare.com', role: 'Cuidador', password: 'demo123' },
-    { email: 'carlos@patient.com', role: 'Paciente', password: 'demo123' },
+    { email: 'maria@healthcare.com', role: 'Administrador', password: 'demo' },
+    { email: 'joao@healthcare.com', role: 'Médico', password: 'demo' },
+    { email: 'ana@healthcare.com', role: 'Cuidador', password: 'demo' },
+    { email: 'carlos@patient.com', role: 'Paciente', password: 'demo' },
   ];
 
   return (
@@ -94,6 +94,9 @@ export const LoginPage = () => {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm">Contas de Demonstração</CardTitle>
+            <CardDescription className="text-xs">
+              Use a senha "demo" para todos os usuários
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             {demoAccounts.map((account, index) => (

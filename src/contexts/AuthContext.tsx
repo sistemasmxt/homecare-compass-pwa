@@ -4,7 +4,7 @@ import { User, UserRole, AuthContextType } from '@/types/auth';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock users - em produção isso viria do backend
+// Mock users - senha padrão 'demo' para todos
 const mockUsers: User[] = [
   {
     id: '1',
@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Simular verificação de sessão
+  // Verificar sessão salva
   useEffect(() => {
     const savedUser = localStorage.getItem('healthcare_user');
     if (savedUser) {
@@ -54,8 +54,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Simular chamada de API
     await new Promise(resolve => setTimeout(resolve, 1000));
     
+    // Aceitar senha 'demo' para todos os usuários
     const foundUser = mockUsers.find(u => u.email === email);
-    if (foundUser) {
+    if (foundUser && password === 'demo') {
       setUser(foundUser);
       localStorage.setItem('healthcare_user', JSON.stringify(foundUser));
     } else {
