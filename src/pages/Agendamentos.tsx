@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -53,8 +52,8 @@ export default function Agendamentos() {
     profissional: '',
     data: '',
     hora: '',
-    tipo: 'consulta' as const,
-    status: 'agendado' as const,
+    tipo: 'consulta' as 'consulta' | 'visita' | 'exame',
+    status: 'agendado' as 'agendado' | 'confirmado' | 'cancelado' | 'realizado',
     observacoes: ''
   });
 
@@ -181,7 +180,7 @@ export default function Agendamentos() {
               </div>
               <div>
                 <Label htmlFor="tipo">Tipo</Label>
-                <Select value={formData.tipo} onValueChange={(value: any) => setFormData({...formData, tipo: value})}>
+                <Select value={formData.tipo} onValueChange={(value: 'consulta' | 'visita' | 'exame') => setFormData({...formData, tipo: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -194,7 +193,7 @@ export default function Agendamentos() {
               </div>
               <div>
                 <Label htmlFor="status">Status</Label>
-                <Select value={formData.status} onValueChange={(value: any) => setFormData({...formData, status: value})}>
+                <Select value={formData.status} onValueChange={(value: 'agendado' | 'confirmado' | 'cancelado' | 'realizado') => setFormData({...formData, status: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>

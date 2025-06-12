@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,10 +60,10 @@ export default function Profissionais() {
     nome: '',
     email: '',
     telefone: '',
-    tipo: 'medico' as const,
+    tipo: 'medico' as 'medico' | 'cuidador' | 'enfermeiro' | 'fisioterapeuta',
     especialidade: '',
     registro: '',
-    status: 'ativo' as const
+    status: 'ativo' as 'ativo' | 'inativo'
   });
 
   const filteredProfissionais = profissionais.filter(profissional =>
@@ -185,7 +184,7 @@ export default function Profissionais() {
               </div>
               <div>
                 <Label htmlFor="tipo">Tipo</Label>
-                <Select value={formData.tipo} onValueChange={(value: any) => setFormData({...formData, tipo: value})}>
+                <Select value={formData.tipo} onValueChange={(value: 'medico' | 'cuidador' | 'enfermeiro' | 'fisioterapeuta') => setFormData({...formData, tipo: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -217,7 +216,7 @@ export default function Profissionais() {
               </div>
               <div>
                 <Label htmlFor="status">Status</Label>
-                <Select value={formData.status} onValueChange={(value: any) => setFormData({...formData, status: value})}>
+                <Select value={formData.status} onValueChange={(value: 'ativo' | 'inativo') => setFormData({...formData, status: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>

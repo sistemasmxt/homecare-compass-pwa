@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -57,10 +56,10 @@ export default function Financeiro() {
   const [formData, setFormData] = useState({
     descricao: '',
     valor: '',
-    tipo: 'receita' as const,
+    tipo: 'receita' as 'receita' | 'despesa',
     categoria: '',
     data: '',
-    status: 'pendente' as const
+    status: 'pendente' as 'pago' | 'pendente' | 'vencido'
   });
 
   const filteredTransacoes = transacoes.filter(transacao =>
@@ -176,7 +175,7 @@ export default function Financeiro() {
               </div>
               <div>
                 <Label htmlFor="tipo">Tipo</Label>
-                <Select value={formData.tipo} onValueChange={(value: any) => setFormData({...formData, tipo: value})}>
+                <Select value={formData.tipo} onValueChange={(value: 'receita' | 'despesa') => setFormData({...formData, tipo: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -206,7 +205,7 @@ export default function Financeiro() {
               </div>
               <div>
                 <Label htmlFor="status">Status</Label>
-                <Select value={formData.status} onValueChange={(value: any) => setFormData({...formData, status: value})}>
+                <Select value={formData.status} onValueChange={(value: 'pago' | 'pendente' | 'vencido') => setFormData({...formData, status: value})}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
