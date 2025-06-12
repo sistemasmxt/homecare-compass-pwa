@@ -6,9 +6,17 @@ import { CaregiverDashboard } from "@/components/dashboards/CaregiverDashboard";
 import { PatientDashboard } from "@/components/dashboards/PatientDashboard";
 
 const Index = () => {
+  console.log('Index component rendering...');
   const { user } = useAuth();
 
-  if (!user) return null;
+  console.log('User in Index:', user);
+
+  if (!user) {
+    console.log('No user in Index, this should not happen');
+    return null;
+  }
+
+  console.log('Rendering dashboard for role:', user.role);
 
   switch (user.role) {
     case 'admin':
@@ -20,6 +28,7 @@ const Index = () => {
     case 'patient':
       return <PatientDashboard />;
     default:
+      console.log('Unknown role, defaulting to AdminDashboard');
       return <AdminDashboard />;
   }
 };
