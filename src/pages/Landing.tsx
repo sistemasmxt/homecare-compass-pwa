@@ -1,103 +1,57 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Activity, 
-  Users, 
-  Calendar, 
-  DollarSign, 
-  Shield, 
-  Zap, 
-  Heart,
-  CheckCircle,
-  Star,
-  ArrowRight
-} from 'lucide-react';
+import { Activity, Users, Calendar, DollarSign, Shield, Zap, Heart, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 export default function Landing() {
-  const features = [
-    {
-      icon: Users,
-      title: 'Gestão de Pacientes',
-      description: 'Controle completo do histórico e cuidados de cada paciente'
-    },
-    {
-      icon: Calendar,
-      title: 'Agendamentos',
-      description: 'Sistema inteligente de agendamento e escalas de profissionais'
-    },
-    {
-      icon: DollarSign,
-      title: 'Controle Financeiro',
-      description: 'Gestão financeira completa com relatórios detalhados'
-    },
-    {
-      icon: Shield,
-      title: 'Segurança LGPD',
-      description: 'Proteção total dos dados conforme regulamentações'
-    },
-    {
-      icon: Zap,
-      title: 'Relatórios em Tempo Real',
-      description: 'Analytics e relatórios instantâneos para tomada de decisão'
-    },
-    {
-      icon: Heart,
-      title: 'Cuidado Humanizado',
-      description: 'Tecnologia que potencializa o cuidado humano'
-    }
-  ];
-
-  const plans = [
-    {
-      name: 'Básico',
-      price: 'R$ 299',
-      period: '/mês',
-      description: 'Ideal para clínicas pequenas',
-      features: [
-        'Até 50 pacientes',
-        'Agendamentos básicos',
-        'Relatórios simples',
-        'Suporte por email'
-      ],
-      popular: false
-    },
-    {
-      name: 'Premium',
-      price: 'R$ 599',
-      period: '/mês',
-      description: 'Para empresas em crescimento',
-      features: [
-        'Até 200 pacientes',
-        'Agendamentos avançados',
-        'Relatórios completos',
-        'Analytics em tempo real',
-        'Suporte prioritário',
-        'Integração com laboratórios'
-      ],
-      popular: true
-    },
-    {
-      name: 'Enterprise',
-      price: 'Sob consulta',
-      period: '',
-      description: 'Solução completa personalizada',
-      features: [
-        'Pacientes ilimitados',
-        'Customizações',
-        'API dedicada',
-        'Suporte 24/7',
-        'Treinamento incluso',
-        'Implementação assistida'
-      ],
-      popular: false
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+  const features = [{
+    icon: Users,
+    title: 'Gestão de Pacientes',
+    description: 'Controle completo do histórico e cuidados de cada paciente'
+  }, {
+    icon: Calendar,
+    title: 'Agendamentos',
+    description: 'Sistema inteligente de agendamento e escalas de profissionais'
+  }, {
+    icon: DollarSign,
+    title: 'Controle Financeiro',
+    description: 'Gestão financeira completa com relatórios detalhados'
+  }, {
+    icon: Shield,
+    title: 'Segurança LGPD',
+    description: 'Proteção total dos dados conforme regulamentações'
+  }, {
+    icon: Zap,
+    title: 'Relatórios em Tempo Real',
+    description: 'Analytics e relatórios instantâneos para tomada de decisão'
+  }, {
+    icon: Heart,
+    title: 'Cuidado Humanizado',
+    description: 'Tecnologia que potencializa o cuidado humano'
+  }];
+  const plans = [{
+    name: 'Básico',
+    price: 'R$ 299',
+    period: '/mês',
+    description: 'Ideal para clínicas pequenas',
+    features: ['Até 50 pacientes', 'Agendamentos básicos', 'Relatórios simples', 'Suporte por email'],
+    popular: false
+  }, {
+    name: 'Premium',
+    price: 'R$ 599',
+    period: '/mês',
+    description: 'Para empresas em crescimento',
+    features: ['Até 200 pacientes', 'Agendamentos avançados', 'Relatórios completos', 'Analytics em tempo real', 'Suporte prioritário', 'Integração com laboratórios'],
+    popular: true
+  }, {
+    name: 'Enterprise',
+    price: 'Sob consulta',
+    period: '',
+    description: 'Solução completa personalizada',
+    features: ['Pacientes ilimitados', 'Customizações', 'API dedicada', 'Suporte 24/7', 'Treinamento incluso', 'Implementação assistida'],
+    popular: false
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -154,8 +108,7 @@ export default function Landing() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+            {features.map((feature, index) => <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <feature.icon className="h-12 w-12 text-blue-600 mb-4" />
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
@@ -163,8 +116,7 @@ export default function Landing() {
                 <CardContent>
                   <p className="text-slate-600">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -181,16 +133,13 @@ export default function Landing() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <Card key={index} className={`relative ${plan.popular ? 'border-blue-500 shadow-xl scale-105' : 'border-slate-200'}`}>
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            {plans.map((plan, index) => <Card key={index} className={`relative ${plan.popular ? 'border-blue-500 shadow-xl scale-105' : 'border-slate-200'}`}>
+                {plan.popular && <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-blue-600 text-white px-4 py-1">
                       <Star className="h-4 w-4 mr-1" />
                       Mais Popular
                     </Badge>
-                  </div>
-                )}
+                  </div>}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <div className="flex items-baseline justify-center">
@@ -201,19 +150,16 @@ export default function Landing() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center">
+                    {plan.features.map((feature, i) => <li key={i} className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                         <span className="text-slate-600">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <Button className="w-full" variant={plan.popular ? 'default' : 'outline'}>
                     {plan.name === 'Enterprise' ? 'Entrar em Contato' : 'Começar Agora'}
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -233,7 +179,7 @@ export default function Landing() {
                 Iniciar Teste Gratuito
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-4 text-white border-white hover:text-blue-600 bg-slate-50">
               Falar com Especialista
             </Button>
           </div>
@@ -252,6 +198,5 @@ export default function Landing() {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 }
